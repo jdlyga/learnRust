@@ -12,10 +12,7 @@ fn main() {
         .read_line(&mut input)
         .expect("Failed to read input");
 
-    let num_terms: u32 = input
-        .trim()
-        .parse()
-        .expect("Not a numeric input");
+    let num_terms: u32 = input.trim().parse().expect("Not a numeric input");
 
     if num_terms <= 0 {
         println!("You gotta order at least one!");
@@ -52,7 +49,12 @@ fn fibonacci(num_terms: u32) {
             output = next_term;
         }
 
-        println!("Order {:03}: Here is a pizza with {} {}", number, output, slice_or_slices(output));
+        println!(
+            "Order {:03}: Here is a pizza with {} {}",
+            number,
+            output,
+            slice_or_slices(output)
+        );
     }
 
     println!("Enjoy!");
@@ -62,7 +64,6 @@ fn fibonacci(num_terms: u32) {
 
 /** returns a new string that's either singular or plural for grammatical correctness */
 fn slice_or_slices(number: u128) -> String {
-
     let output = match number {
         1 => "slice".to_string(),
         _ => "slices".to_string(),
